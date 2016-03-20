@@ -15,6 +15,7 @@ public class BeamGame extends Application {
 
     	@Override
     	public void start(Stage primaryStage) {
+    		
         	this.primaryStage = primaryStage;
         	this.primaryStage.setTitle("Beam Game");
 
@@ -24,15 +25,14 @@ public class BeamGame extends Application {
 	/** Initializes the root layout */
     	public void initRootLayout() {
         	try {
+       			/** Load BeamMachine.fxml */
+            		FXMLLoader loader = new FXMLLoader();
+            		loader.setLocation(BeamGame.class.getResource("BeamMachine.fxml"));
+            		rootLayout = (AnchorPane) loader.load();
             	
-       		/** Load BeamMachine.fxml */
-            	FXMLLoader loader = new FXMLLoader();
-            	loader.setLocation(BeamGame.class.getResource("BeamMachine.fxml"));
-            	rootLayout = (AnchorPane) loader.load();
-            	
-            	Scene scene = new Scene(rootLayout);
-            	primaryStage.setScene(scene);
-            	primaryStage.show();
+            		Scene scene = new Scene(rootLayout);
+            		primaryStage.setScene(scene);
+            		primaryStage.show();
         	}
 		catch (IOException e) {
             		e.printStackTrace();
